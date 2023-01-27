@@ -1,12 +1,16 @@
 # import required library's
 from os import system as cmd
 
-librarys = ['vlc' , 'pygame' , 'multiprocessing' , 'time' , 'platform']
+librarys = ['python-vlc' , 'pygame' , 'multiprocessing' , 'time' , 'platform']
 for library in librarys:
 	try:
 		exec(f'import {library}')
-	except ModuleNotFoundError:
+	except:
 		cmd(f'pip3 install {library}')
+		try:
+			exec(f'import {library}')
+		except:
+			exec(f'import vlc')
 # default url's
 radio_javan = "http://74.115.215.36/"
 radio_faaz = "http://www.radiofaaz.com:8000/radiofaaz"
